@@ -1,0 +1,10 @@
+#contact-info p,
+#contact-info ul {
+  text-align: left;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: 31%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
