@@ -1,32 +1,31 @@
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
 
-      body {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-      }
+p {
+  margin: 0;
+}
 
-      p {
-        margin: 0;
-      }
+.showing_books {
+  margin-bottom: 1.4rem;
+}
 
-      .showing_books {
-        margin-bottom: 1.4rem;
-      }
+.book {
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid black;
+}
 
-      .book {
-        margin-bottom: 0.8rem;
-        padding-bottom: 0.4rem;
-        border-bottom: 1px solid black;
-      }
+.book_section form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
 
-      .book_section form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-      }
-
-      button {
-        cursor: pointer;
-      }
+button {
+  cursor: pointer;
+}
