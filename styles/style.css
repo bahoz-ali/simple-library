@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* header */
+body {
+  color: #000;
+  font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#nav {
+  color: #fff;
+  display: flex;
+  background-color: brown;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1.5rem 2rem;
+}
+
+.nav_list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav_list .item {
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: all 0.4s ease-in;
+}
+
+.nav_list .item:hover {
+  background-color: #fff;
+  
+  color: brown;
+  cursor: pointer;
+}
