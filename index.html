@@ -13,26 +13,62 @@
         flex-direction: column;
         justify-content: center;
       }
+
+      p {
+        margin: 0;
+      }
+
+      .showing_books {
+        margin-bottom: 1.4rem;
+      }
+
+      .book {
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid black;
+      }
+
+      .book_section form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+
+      button {
+        cursor: pointer;
+      }
       
     </style>
   </head>
   <body>
-    <!-- book section -->
-    <section class="book_section">
+    <div class="wraper">
       <h1>Awesome books</h1>
 
-      <form action="#">
-        <div class="form_input">
-          <input type="text" placeholder="Title" id="Title" />
+      <section class="showing_books">
+        <div class="book_list">
+          <div class="book">
+            <p>book title</p>
+            <p>author name</p>
+            <button type="submit">delete</button>
+          </div>
         </div>
+      </section>
 
-        <div class="form_input">
-          <input type="text" placeholder="Author" id="Author" />
-        </div>
+      <!-- book section -->
+      <section class="book_section">
+        <form action="#">
+          <div class="form_input">
+            <input type="text" placeholder="Title" id="Title" />
+          </div>
 
-        <button class="btn btn--primary" type="submit">Add</button>
-      </form>
-    </section>
+          <div class="form_input">
+            <input type="text" placeholder="Author" id="Author" />
+          </div>
+
+          <button class="btn btn--primary" type="submit">Add</button>
+        </form>
+      </section>
+    </div>
 
     <script src="./scripts/index.js"></script>
   </body>
