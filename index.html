@@ -45,27 +45,23 @@
       <h1>Awesome books</h1>
 
       <section class="showing_books">
-        <div class="book_list">
-          <div class="book">
-            <p id="title">book title</p>
-            <p id="author">author name</p>
-            <button type="submit">delete</button>
-          </div>
-        </div>
+        <div class="book_list"></div>
       </section>
 
       <!-- book section -->
       <section class="book_section">
         <form action="#">
           <div class="form_input">
-            <input type="text" placeholder="Title" id="Title" />
+            <input type="text" placeholder="Title" id="title_input" />
           </div>
 
           <div class="form_input">
-            <input type="text" placeholder="Author" id="Author" />
+            <input type="text" placeholder="Author" id="author_input" />
           </div>
 
-          <button class="btn btn--primary" type="submit">Add</button>
+          <button id="add_book" class="btn btn--primary" type="submit">
+            Add
+          </button>
         </form>
       </section>
     </div>
