@@ -11,10 +11,9 @@
 - JavaScript
 - Git and github
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://livedemo.com)
-
+[Live Demo Link](https://bahoz-ali.github.io/simple-library/)
 
 ## Getting Started
 
