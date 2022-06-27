@@ -29,6 +29,15 @@ a {
   padding: 0.5rem 2rem;
 }
 
+.v-line {
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 2px;
+  height: 2rem;
+  width: 2px;
+  background-color: #fff;
+}
+
 .nav_list {
   display: flex;
   align-items: center;
@@ -36,13 +45,13 @@ a {
   gap: 1rem;
 }
 
-.nav_list .item {
+.nav_list .item a{
   border-radius: 5px;
   padding: 0.5rem 1rem;
   transition: all 0.4s ease-in;
 }
 
-.nav_list .item:hover {
+.nav_list .item a:hover {
   background-color: #fff;
 
   color: brown;

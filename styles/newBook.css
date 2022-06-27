@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+.book_section > h1 {
+  font-size: 2.2rem;
+}
+
 form {
   margin-top: 2rem;
   text-align: right;
@@ -30,7 +34,6 @@ form .form_input {
   color: #fff;
   background-color: brown;
 }
-
 
 .btn--primary {
   color: #fff;
