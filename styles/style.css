@@ -1,9 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-/* header */
+/* ----- header ----- */
 body {
   color: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
 }
 
 #nav {
@@ -13,7 +26,7 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  padding: 1.5rem 2rem;
+  padding: 0.5rem 2rem;
 }
 
 .nav_list {
@@ -31,7 +44,23 @@ body {
 
 .nav_list .item:hover {
   background-color: #fff;
-  
+
   color: brown;
   cursor: pointer;
+}
+
+/* ----- time section ----- */
+
+.time_section p {
+  text-align: right;
+  margin: 0.2rem 1rem 0 0;
+}
+
+/* ----- footer ----- */
+
+footer {
+  padding: 1.5rem 2rem;
+  color: white;
+  background-color: rgb(24, 22, 22);
+  margin-top: auto;
 }

@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./styles/normalize.css" />
     <!-- css file -->
     <link rel="stylesheet" href="./styles/style.css" />
+     <!-- css for new book  -->
+    <link rel="stylesheet" href="./styles/newBook.css">
   </head>
   <body>
     <header>
@@ -24,8 +26,31 @@
         </ul>
       </nav>
     </header>
-    
-    <h1>Add new books</h1>
+
+    <!-- time section -->
+    <section class="time_section">
+      <p>March 19th 2022, 10:30:02 PM</p>
+    </section>
+
+    <!-- book section -->
+    <section class="book_section">
+      <h1>Add a new book</h1>
+
+      <form action="#">
+        <div class="form_input">
+          <input type="text" placeholder="Title" />
+        </div>
+
+        <div class="form_input">
+          <input type="text" placeholder="Author" />
+        </div>
+
+        <button class="btn btn--primary" type="submit">Add</button>
+      </form>
+    </section>
+
+    <!-- footer section -->
+    <footer>&copy; Copyright 2022 <span>AWESOME BOOKS</span></footer>
 
     <script src="./scripts/index.js"></script>
   </body>
