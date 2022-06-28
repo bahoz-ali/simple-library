@@ -73,7 +73,23 @@ function uniqueId() {
   return length ? length + 1 : 0;
 }
 
-
+function addBook(e) {
+    e.preventDefault();
+  
+    const id = uniqueId();
+    const title = titleInput.value.trim() ? titleInput.value.trim() : 'test';
+    const author = authorInput.value.trim() ? authorInput.value.trim() : 'test';
+  
+    const newBook = new Book(id, title, author);
+  
+    const books = getData('books').concat(newBook);
+  
+    updateStorage(books);
+  
+    displayBooks();
+  
+    form.reset();
+  }
 
 addBookButton.addEventListener('click', addBook);
 
