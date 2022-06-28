@@ -57,11 +57,15 @@ class Library {
     }
   };
 
-  
-
-  updateStorage() {
-    localStorage.setItem('books', JSON.stringify(this.books));
+  createLocalStorage() {
+    if (!localStorage.getItem('books')) {
+      localStorage.setItem('books', JSON.stringify([]));
+    } else {
+      this.books = this.getBooks();
+    }
   }
+
+  
 
   templateBook = (obj) => {
     const div = document.createElement('div');
