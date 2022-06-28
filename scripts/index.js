@@ -57,16 +57,7 @@ function updateStorage(books) {
 }
 
 // eslint-disable-next-line
-function deleteBook(id) {
-  const books = getData('books');
 
-  if (books) {
-    const updateBooks = books.filter((b) => b.id !== id);
-
-    updateStorage(updateBooks);
-    displayBooks();
-  }
-}
 
 function uniqueId() {
   const { length } = getData('books');
