@@ -2,6 +2,7 @@ const titleInput = document.querySelector('#title_input');
 const authorInput = document.querySelector('#author_input');
 const bookList = document.querySelector('.book_list');
 const addBookButton = document.querySelector('#add_book');
+const form = document.querySelector('.book_section form');
 
 class Book {
   constructor(id, title, authorName) {
@@ -41,7 +42,7 @@ function templateBook(obj) {
 function displayBooks() {
   const books = getData('books');
 
-  // clean the display books then before.
+  // clean the book list before.
   bookList.innerHTML = '';
 
   if (books) {
@@ -51,12 +52,8 @@ function displayBooks() {
   }
 }
 
-function updateStorage(book) {
-  const books = getData('books');
-  books.push(book);
-
+function updateStorage(books) {
   localStorage.setItem('books', JSON.stringify(books));
-  displayBooks();
 }
 
 // eslint-disable-next-line
@@ -66,29 +63,35 @@ function deleteBook(id) {
   if (books) {
     const updateBooks = books.filter((b) => b.id !== id);
 
-    localStorage.setItem('books', JSON.stringify(updateBooks));
+    updateStorage(updateBooks);
     displayBooks();
   }
+}
+
+function uniqueId() {
+  const { length } = getData('books');
+  return length ? length + 1 : 0;
 }
 
 function addBook(e) {
   e.preventDefault();
 
-  const form = document.querySelector('.book_section form');
-
-  const { length } = getData('books');
-  const id = length ? length + 1 : 0;
+  const id = uniqueId();
   const title = titleInput.value.trim() ? titleInput.value.trim() : 'test';
   const author = authorInput.value.trim() ? authorInput.value.trim() : 'test';
 
   const newBook = new Book(id, title, author);
 
-  updateStorage(newBook);
+  const books = getData('books').concat(newBook);
+
+  updateStorage(books);
+
+  displayBooks();
+
   form.reset();
 }
 
 addBookButton.addEventListener('click', addBook);
-// deleteBookButton.addEventListener('click', deleteBook);
 
 document.addEventListener('DOMContentLoaded', () => {
   init();
