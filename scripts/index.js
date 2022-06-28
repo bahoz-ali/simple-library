@@ -57,13 +57,7 @@ class Library {
     }
   };
 
-  createLocalStorage() {
-    if (!localStorage.getItem('books')) {
-      localStorage.setItem('books', JSON.stringify([]));
-    } else {
-      this.books = this.getBooks();
-    }
-  }
+  
 
   updateStorage() {
     localStorage.setItem('books', JSON.stringify(this.books));
