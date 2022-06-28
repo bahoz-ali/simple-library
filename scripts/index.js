@@ -73,9 +73,9 @@ class Library {
     const div = document.createElement('div');
     div.classList.add('book');
 
-    const insideBook = `<p id="title">${obj.title}</p>
-            <p id="author">${obj.authorName}</p>
-            <button id="delete_book" type="submit" onClick="library.deleteBook(${obj.id})" data-id='${obj.id}'>delete</button>`;
+    const insideBook = `
+     <p><span>${obj.title}</span> by <span>${obj.authorName}</span></p>
+             <button class="btn" id="delete_book" type="submit" onClick="library.deleteBook(${obj.id})" data-id='${obj.id}'>delete</button>`;
 
     div.innerHTML = insideBook;
 
