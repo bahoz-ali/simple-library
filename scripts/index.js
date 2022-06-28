@@ -57,7 +57,16 @@ function updateStorage(books) {
 }
 
 // eslint-disable-next-line
+function deleteBook(id) {
+  const books = getData('books');
 
+  if (books) {
+    const updateBooks = books.filter((b) => b.id !== id);
+
+    updateStorage(updateBooks);
+    displayBooks();
+  }
+}
 
 function uniqueId() {
   const { length } = getData('books');
@@ -65,22 +74,22 @@ function uniqueId() {
 }
 
 function addBook(e) {
-    e.preventDefault();
-  
-    const id = uniqueId();
-    const title = titleInput.value.trim() ? titleInput.value.trim() : 'test';
-    const author = authorInput.value.trim() ? authorInput.value.trim() : 'test';
-  
-    const newBook = new Book(id, title, author);
-  
-    const books = getData('books').concat(newBook);
-  
-    updateStorage(books);
-  
-    displayBooks();
-  
-    form.reset();
-  }
+  e.preventDefault();
+
+  const id = uniqueId();
+  const title = titleInput.value.trim() ? titleInput.value.trim() : 'test';
+  const author = authorInput.value.trim() ? authorInput.value.trim() : 'test';
+
+  const newBook = new Book(id, title, author);
+
+  const books = getData('books').concat(newBook);
+
+  updateStorage(books);
+
+  displayBooks();
+
+  form.reset();
+}
 
 addBookButton.addEventListener('click', addBook);
 
