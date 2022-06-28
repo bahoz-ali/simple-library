@@ -13,7 +13,13 @@ class Book {
   }
 }
 
+class Library {
+  books = [];
 
+  uniqueId = () => {
+    const { length } = this.books;
+    return length ? length + 1 : 0;
+  };
 
   addBook = (e) => {
     e.preventDefault();
