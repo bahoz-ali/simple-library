@@ -65,7 +65,9 @@ class Library {
     }
   }
 
-  
+  updateStorage() {
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
 
   templateBook = (obj) => {
     const div = document.createElement('div');
