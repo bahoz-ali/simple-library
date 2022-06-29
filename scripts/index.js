@@ -94,6 +94,14 @@ class Library {
   }
 }
 
+function show () {
+
+}
+
+function hi () {
+  
+}
+
 const library = new Library();
 
 document.addEventListener('DOMContentLoaded', () => {
