@@ -2,7 +2,11 @@
 
 # Simple Library
 
+<<<<<<< HEAD
 > This is simple project about adding, removing new book, a building or room containing collections of books, periodicals, and for use or borrowing by the public or the members of an institution.
+=======
+>  This is simple project about adding, removing new book, a building or room containing collections of books, periodicals, and   for use or borrowing by the public or the members of an institution. 
+>>>>>>> everything_branch
 
 ## Built With
 
@@ -11,9 +15,15 @@
 - JavaScript
 - Git and github
 
+<<<<<<< HEAD
 ## Live Demo (if available)
 
 - coming soon
+=======
+## Live Demo
+
+[Live Demo Link](https://bahoz-ali.github.io/simple-library/)
+>>>>>>> everything_branch
 
 ## Getting Started
 

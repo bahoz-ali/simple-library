@@ -5,6 +5,16 @@ const bookList = document.querySelector('.book_list');
 const addBookButton = document.querySelector('#add_book');
 const form = document.querySelector('.book_section form');
 
+// sections
+const showingBooksSection = document.querySelector('.showing_books');
+const newBookSection = document.querySelector('.book_section');
+const contactSection = document.querySelector('.contact_section');
+
+// navigation links
+const homeLink = document.querySelector('#home_link');
+const addBookLink = document.querySelector('#add_book_link');
+const contactLink = document.querySelector('#contact_link');
+
 class Book {
   constructor(id, title, authorName) {
     this.id = id;
@@ -94,7 +104,34 @@ class Library {
   }
 }
 
+function show(name, display = 'block') {
+  name.style.display = display;
+}
+
+function hide(name) {
+  name.style.display = 'none';
+}
+
 const library = new Library();
+
+homeLink.addEventListener('click', () => {
+  show(showingBooksSection);
+  hide(newBookSection);
+  hide(contactSection);
+  library.displayBooks();
+});
+
+addBookLink.addEventListener('click', () => {
+  show(newBookSection, 'flex');
+  hide(showingBooksSection);
+  hide(contactSection);
+});
+
+contactLink.addEventListener('click', () => {
+  show(contactSection, 'flex');
+  hide(showingBooksSection);
+  hide(newBookSection);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   library.createLocalStorage();

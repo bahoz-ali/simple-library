@@ -1,35 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* ----- header ----- */
 body {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-p {
-  margin: 0;
-}
-
-.wrapper {
-  width: 100%;
-  text-align: center;
+  color: #000;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  font-family: poppins, Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.btn {
-  padding: 0.4rem 0.8rem;
+a {
+  text-decoration: none;
   color: #fff;
-  outline: none;
-  background-color: #e84545;
-  border-radius: 4px;
-  border: none;
 }
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+#nav {
+  color: #fff;
+  display: flex;
+  background-color: brown;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+.v-line {
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 2px;
+  height: 2rem;
+  width: 2px;
+  background-color: #fff;
+}
+
+.nav_list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav_list .item a {
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: all 0.4s ease-in;
+}
+
+.nav_list .item a:hover {
+  background-color: #fff;
+  color: brown;
+  cursor: pointer;
+}
+
+/* ----- time section ----- */
+
+.time_section p {
+  text-align: right;
+  margin: 0.2rem 1rem 0 0;
+}
+
+/* Books section */
 
 .showing_books {
-  margin-bottom: 1.4rem;
   width: 60%;
+  margin: 0 auto;
   padding: 0.5rem 0.4rem;
   border: 2px solid #53354a;
   background-color: #2b2e4a;
@@ -46,17 +85,93 @@ p {
   background-color: rgb(66, 78, 149);
 }
 
-.book_section form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: flex-end;
-}
-
-button {
-  cursor: pointer;
-}
-
 .book:nth-child(odd) {
   background-color: #903749;
+}
+
+/* ----- book section ----- */
+.wrapper {
+  width: 100%;
+  padding-top: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.book_section {
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.book_section > h1 {
+  font-size: 2.2rem;
+}
+
+form {
+  margin-top: 2rem;
+  text-align: right;
+}
+
+form .form_input {
+  margin-bottom: 0.8rem;
+}
+
+.form_input input {
+  padding: 0.2rem 0.3rem;
+}
+
+.btn {
+  padding: 0.4rem 0.9rem;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn--secondary {
+  color: #fff;
+  background-color: brown;
+}
+
+.btn--primary {
+  color: #fff;
+  background: rgb(17, 111, 17);
+}
+
+/* ----- contact section ----- */
+
+.contact_section {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.contact_section > h1 {
+  font-size: 2.2rem;
+}
+
+.contact {
+  margin-top: 2rem;
+}
+
+.contact > p {
+  font-size: 1.2rem;
+}
+
+.contact__list {
+  list-style-type: disc;
+}
+
+/* ----- footer ----- */
+
+footer {
+  padding: 1.5rem 2rem;
+  color: white;
+  background-color: rgb(24, 22, 22);
+  margin-top: auto;
 }
