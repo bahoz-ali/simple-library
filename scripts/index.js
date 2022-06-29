@@ -5,7 +5,6 @@ const bookList = document.querySelector('.book_list');
 const addBookButton = document.querySelector('#add_book');
 const form = document.querySelector('.book_section form');
 
-
 // sections
 const showingBooksSection = document.querySelector('.showing_books');
 const newBookSection = document.querySelector('.book_section');
@@ -85,8 +84,8 @@ class Library {
     div.classList.add('book');
 
     const insideBook = `
-     <p><span>${obj.title}</span> by <span>${obj.authorName}</span></p>
-             <button class="btn" id="delete_book" type="submit" onClick="library.deleteBook(${obj.id})" data-id='${obj.id}'>delete</button>`;
+     <p><span>${obj.title}</span> - <span>${obj.authorName}</span></p>
+             <button class="btn" id="delete_book" type="submit" onClick="library.deleteBook(${obj.id})" data-id='${obj.id}'><i class="fa-solid fa-trash"></i></button>`;
 
     div.innerHTML = insideBook;
 
@@ -96,6 +95,10 @@ class Library {
   displayBooks() {
     // clean the book list before.
     bookList.innerHTML = '';
+
+    if(this.books.length === 0) {
+      hide(showingBooksSection)
+    }
 
     if (this.books || this.books.length !== 0) {
       this.books.forEach((book) => {
@@ -116,7 +119,10 @@ function hide(name) {
 const library = new Library();
 
 homeLink.addEventListener('click', () => {
-  show(showingBooksSection);
+  if (library.books.length) {
+    show(showingBooksSection);
+  }
+
   hide(newBookSection);
   hide(contactSection);
   library.displayBooks();
@@ -138,4 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
   library.createLocalStorage();
   library.displayBooks();
   addBookButton.addEventListener('click', library.addBook);
+
+  if (library.books.length) {
+    show(showingBooksSection);
+  }
 });

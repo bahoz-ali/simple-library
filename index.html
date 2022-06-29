@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awesome Books</title>
 
+    <!-- font awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
     <!-- reset css -->
     <link rel="stylesheet" href="./styles/reset.css" />
     <!-- normalize css -->
@@ -16,7 +25,7 @@
   <body>
     <header>
       <nav id="nav">
-        <p>Awesome book</p>
+        <h3>Awesome book</h3>
         <ul class="nav_list">
           <li class="item"><a id="home_link" href="#">List</a></li>
           <li class="v-line"></li>
@@ -44,14 +53,16 @@
 
         <form action="#">
           <div class="form_input">
-            <input type="text" placeholder="Title" id="title_input"  />
+            <input type="text" placeholder="Title" id="title_input" />
           </div>
 
           <div class="form_input">
             <input type="text" placeholder="Author" id="author_input" />
           </div>
 
-          <button  id="add_book" class="btn btn--primary" type="submit">Add</button>
+          <button id="add_book" class="btn btn--primary" type="submit">
+            Add
+          </button>
         </form>
       </section>
 
