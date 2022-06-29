@@ -5,6 +5,35 @@ const bookList = document.querySelector('.book_list');
 const addBookButton = document.querySelector('#add_book');
 const form = document.querySelector('.book_section form');
 
+// sections
+const showingBooksSection = document.querySelector('.showing_books');
+const newBookSection = document.querySelector('.book_section');
+const contactSection = document.querySelector('.contact_section');
+
+// navigation links
+const homeLink = document.querySelector('#home_link');
+const addBookLink = document.querySelector('#add_book_link');
+const contactLink = document.querySelector('#contact_link');
+
+homeLink.addEventListener('click', () => {
+  showingBooksSection.style.display = 'block';
+  newBookSection.style.display = 'none';
+  contactSection.style.display = 'none';
+  library.displayBooks();
+});
+
+addBookLink.addEventListener('click', () => {
+  showingBooksSection.style.display = 'none';
+  newBookSection.style.display = 'flex';
+  contactSection.style.display = 'none';
+});
+
+contactLink.addEventListener('click', () => {
+  showingBooksSection.style.display = 'none';
+  newBookSection.style.display = 'none';
+  contactSection.style.display = 'flex';
+});
+
 class Book {
   constructor(id, title, authorName) {
     this.id = id;
@@ -94,13 +123,9 @@ class Library {
   }
 }
 
-function show () {
+function show() {}
 
-}
-
-function hi () {
-  
-}
+function hide() {}
 
 const library = new Library();
 
@@ -109,3 +134,5 @@ document.addEventListener('DOMContentLoaded', () => {
   library.displayBooks();
   addBookButton.addEventListener('click', library.addBook);
 });
+
+

@@ -147,7 +147,6 @@ form .form_input {
 /* ----- contact section ----- */
 
 .contact_section {
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
