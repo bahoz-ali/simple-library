@@ -5,6 +5,7 @@ const bookList = document.querySelector('.book_list');
 const addBookButton = document.querySelector('#add_book');
 const form = document.querySelector('.book_section form');
 
+
 // sections
 const showingBooksSection = document.querySelector('.showing_books');
 const newBookSection = document.querySelector('.book_section');
