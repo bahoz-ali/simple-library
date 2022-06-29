@@ -84,7 +84,7 @@ class Library {
     div.classList.add('book');
 
     const insideBook = `
-     <p><span>${obj.title}</span> - <span>${obj.authorName}</span></p>
+     <p><i class="fa-solid fa-address-book"></i> <span style="margin-left: 0.2rem;">${obj.title}</span> - <span>${obj.authorName}</span></p>
              <button class="btn" id="delete_book" type="submit" onClick="library.deleteBook(${obj.id})" data-id='${obj.id}'><i class="fa-solid fa-trash"></i></button>`;
 
     div.innerHTML = insideBook;
