@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 /* ----- header ----- */
 body {
   color: #000;
@@ -25,7 +26,6 @@ a {
   background-color: brown;
   justify-content: space-between;
   align-items: center;
-
   padding: 0.5rem 2rem;
 }
 
@@ -53,7 +53,6 @@ a {
 
 .nav_list .item a:hover {
   background-color: #fff;
-
   color: brown;
   cursor: pointer;
 }
@@ -68,7 +67,6 @@ a {
 /* Books section */
 
 .showing_books {
-  margin-bottom: 1.4rem;
   width: 60%;
   margin: 0 auto;
   padding: 0.5rem 0.4rem;
@@ -104,7 +102,6 @@ a {
 
 .book_section {
   text-align: center;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -119,6 +116,7 @@ form {
   margin-top: 2rem;
   text-align: right;
 }
+
 form .form_input {
   margin-bottom: 0.8rem;
 }

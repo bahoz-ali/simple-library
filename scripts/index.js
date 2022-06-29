@@ -15,25 +15,6 @@ const homeLink = document.querySelector('#home_link');
 const addBookLink = document.querySelector('#add_book_link');
 const contactLink = document.querySelector('#contact_link');
 
-homeLink.addEventListener('click', () => {
-  showingBooksSection.style.display = 'block';
-  newBookSection.style.display = 'none';
-  contactSection.style.display = 'none';
-  library.displayBooks();
-});
-
-addBookLink.addEventListener('click', () => {
-  showingBooksSection.style.display = 'none';
-  newBookSection.style.display = 'flex';
-  contactSection.style.display = 'none';
-});
-
-contactLink.addEventListener('click', () => {
-  showingBooksSection.style.display = 'none';
-  newBookSection.style.display = 'none';
-  contactSection.style.display = 'flex';
-});
-
 class Book {
   constructor(id, title, authorName) {
     this.id = id;
@@ -123,16 +104,37 @@ class Library {
   }
 }
 
-function show() {}
+function show(name, display = 'block') {
+  name.style.display = display;
+}
 
-function hide() {}
+function hide(name) {
+  name.style.display = 'none';
+}
 
 const library = new Library();
+
+homeLink.addEventListener('click', () => {
+  show(showingBooksSection);
+  hide(newBookSection);
+  hide(contactSection);
+  library.displayBooks();
+});
+
+addBookLink.addEventListener('click', () => {
+  show(newBookSection, 'flex');
+  hide(showingBooksSection);
+  hide(contactSection);
+});
+
+contactLink.addEventListener('click', () => {
+  show(contactSection, 'flex');
+  hide(showingBooksSection);
+  hide(newBookSection);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   library.createLocalStorage();
   library.displayBooks();
   addBookButton.addEventListener('click', library.addBook);
 });
-
-
