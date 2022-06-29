@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 const titleInput = document.querySelector('#title_input');
 const authorInput = document.querySelector('#author_input');
 const bookList = document.querySelector('.book_list');
@@ -12,88 +13,91 @@ class Book {
   }
 }
 
-function init() {
-  if (!localStorage.getItem('books')) {
-    localStorage.setItem('books', JSON.stringify([]));
+class Library {
+  books = [];
+
+  uniqueId = () => {
+    const { length } = this.books;
+    return length ? length + 1 : 0;
+  };
+
+  addBook = (e) => {
+    e.preventDefault();
+
+    const id = this.uniqueId();
+    const title = titleInput.value.trim() ? titleInput.value.trim() : 'test';
+    const author = authorInput.value.trim() ? authorInput.value.trim() : 'test';
+
+    const newBook = new Book(id, title, author);
+
+    this.books.push(newBook);
+
+    this.updateStorage();
+
+    this.displayBooks();
+
+    form.reset();
+  };
+
+  // eslint-disable-next-line
+  deleteBook = (id) => {
+    if (this.books) {
+      this.books = this.books.filter((b) => b.id !== id);
+
+      this.updateStorage();
+      this.displayBooks();
+    }
+  };
+
+  getBooks = () => {
+    try {
+      return JSON.parse(localStorage.getItem('books'));
+    } catch (error) {
+      return localStorage.getItem('books');
+    }
+  };
+
+  createLocalStorage() {
+    if (!localStorage.getItem('books')) {
+      localStorage.setItem('books', JSON.stringify([]));
+    } else {
+      this.books = this.getBooks();
+    }
+  }
+
+  updateStorage() {
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
+
+  templateBook = (obj) => {
+    const div = document.createElement('div');
+    div.classList.add('book');
+
+    const insideBook = `
+     <p><span>${obj.title}</span> by <span>${obj.authorName}</span></p>
+             <button class="btn" id="delete_book" type="submit" onClick="library.deleteBook(${obj.id})" data-id='${obj.id}'>delete</button>`;
+
+    div.innerHTML = insideBook;
+
+    bookList.append(div);
+  };
+
+  displayBooks() {
+    // clean the book list before.
+    bookList.innerHTML = '';
+
+    if (this.books || this.books.length !== 0) {
+      this.books.forEach((book) => {
+        this.templateBook(book);
+      });
+    }
   }
 }
 
-function getData(key) {
-  try {
-    return JSON.parse(localStorage.getItem(key));
-  } catch (error) {
-    return localStorage.getItem(key);
-  }
-}
-
-function templateBook(obj) {
-  const div = document.createElement('div');
-  div.classList.add('book');
-
-  const insideBook = `<p id="title">${obj.title}</p>
-            <p id="author">${obj.authorName}</p>
-            <button id="delete_book" type="submit" onClick="deleteBook(${obj.id})" data-id='${obj.id}'>delete</button>`;
-
-  div.innerHTML = insideBook;
-
-  bookList.append(div);
-}
-
-function displayBooks() {
-  const books = getData('books');
-
-  // clean the book list before.
-  bookList.innerHTML = '';
-
-  if (books) {
-    books.forEach((book) => {
-      templateBook(book);
-    });
-  }
-}
-
-function updateStorage(books) {
-  localStorage.setItem('books', JSON.stringify(books));
-}
-
-// eslint-disable-next-line
-function deleteBook(id) {
-  const books = getData('books');
-
-  if (books) {
-    const updateBooks = books.filter((b) => b.id !== id);
-
-    updateStorage(updateBooks);
-    displayBooks();
-  }
-}
-
-function uniqueId() {
-  const { length } = getData('books');
-  return length ? length + 1 : 0;
-}
-
-function addBook(e) {
-  e.preventDefault();
-
-  const id = uniqueId();
-  const title = titleInput.value.trim() ? titleInput.value.trim() : 'test';
-  const author = authorInput.value.trim() ? authorInput.value.trim() : 'test';
-
-  const newBook = new Book(id, title, author);
-
-  const books = getData('books').concat(newBook);
-
-  updateStorage(books);
-
-  displayBooks();
-
-  form.reset();
-}
-
-addBookButton.addEventListener('click', addBook);
+const library = new Library();
 
 document.addEventListener('DOMContentLoaded', () => {
-  init();
-  displayBooks();
+  library.createLocalStorage();
+  library.displayBooks();
+  addBookButton.addEventListener('click', library.addBook);
 });
